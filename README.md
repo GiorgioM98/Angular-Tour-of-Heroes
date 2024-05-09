@@ -1,7 +1,7 @@
 # AngularApp
 
 This project was generated with Angular CLI version 17.3.6.
-You can view this project online at: angular-tour-of-heroes-3f203.web.app
+You can view this project online at: https://angular-tour-of-heroes-3f203.web.app/dashboard
 
 
 ## Table of Contents
