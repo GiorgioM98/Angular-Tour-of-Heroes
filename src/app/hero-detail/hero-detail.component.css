@@ -1,11 +1,16 @@
-/* HeroDetailComponent's private CSS styles */
+.container {
+  margin-top: 2rem;
+}
+
 label {
   color: #435960;
   font-weight: bold;
 }
+
 input {
   font-size: 1em;
-  padding: .5rem;
+  padding: 0.5rem;
+  margin: 1rem;
 }
 button {
   margin-top: 20px;

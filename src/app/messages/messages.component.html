@@ -1,5 +1,8 @@
-<div *ngIf="messageService.message.length">
+<!-- info messages component -->
+<div class="containerMessage" nfgngfn *ngIf="messageService.message.length">
   <h2>Message</h2>
+  <!-- button clear messages -->
   <button type="button" class="cleat" (click)="messageService.clear()">Clear message</button>
+  <!-- list of messages -->
   <div *ngFor="let message of messageService.message"> {{message}} </div>
 </div>

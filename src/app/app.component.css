@@ -1,11 +1,10 @@
-/* AppComponent's private CSS styles */
 h1 {
-  margin-bottom: 0;
+  margin-bottom: 1em;
 }
 nav a {
   padding: 1rem;
   text-decoration: none;
-  margin-top: 10px;
+  margin-right: 1em;
   display: inline-block;
   background-color: #e8e8e8;
   color: #3d3d3d;
@@ -14,8 +13,36 @@ nav a {
 
 nav a:hover {
   color: white;
-  background-color: #42545C;
+  background-color: #42545c;
 }
 nav a:active {
   background-color: black;
+}
+
+.footer {
+  display: block;
+  background-color: #369;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  margin-top: 1.5em !important;
+  border-top: 1px solid black;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: white;
+}
+
+.footer p {
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  color: white;
 }

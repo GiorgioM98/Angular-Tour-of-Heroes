@@ -7,15 +7,15 @@ import { HeroService } from '../hero.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
-    standalone: true,
-    selector: 'app-heroes',
-    templateUrl: './heroes.component.html',
-    styleUrls: ['./heroes.component.css'],
-    imports: [FormsModule, NgIf, NgFor, UpperCasePipe, HeroDetailComponent, RouterModule]
+  standalone: true,
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css'],
+  imports: [FormsModule, NgIf, NgFor, UpperCasePipe, HeroDetailComponent, RouterModule]
 })
 export class HeroesComponent {
 
-  heroes: Hero[]= [];
+  heroes: Hero[] = [];
 
   constructor(private heroService: HeroService) { }
 
@@ -23,22 +23,24 @@ export class HeroesComponent {
     this.getHeroes();
   }
 
+  // get heroes
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe(data => this.heroes = data)
+  }
 
-getHeroes(): void{
-  this.heroService.getHeroes().subscribe(data=>this.heroes=data)
-}
+  // add hero
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
 
-add(name: string): void {
-  name = name.trim();
-  if (!name) { return; }
-  this.heroService.addHero({ name } as Hero)
-    .subscribe(hero => {
-      this.heroes.push(hero);
-    });
-}
-
-delete(hero: Hero): void {
-  this.heroes = this.heroes.filter(h => h !== hero);
-  this.heroService.deleteHero(hero.id).subscribe();
-}
+  // delete hero
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero.id).subscribe();
+  }
 }

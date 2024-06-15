@@ -1,7 +1,7 @@
-import {Component, Input} from '@angular/core';
-import {NgIf, UpperCasePipe} from '@angular/common';
-import {FormsModule} from '@angular/forms';
-import {Hero} from '../hero';
+import { Component, Input } from '@angular/core';
+import { NgIf, UpperCasePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { HeroService } from '../hero.service';
@@ -16,26 +16,29 @@ import { HeroService } from '../hero.service';
 export class HeroDetailComponent {
   @Input() hero!: Hero
 
-  constructor(private route: ActivatedRoute, private heroService: HeroService, private location: Location){}
+  constructor(private route: ActivatedRoute, private heroService: HeroService, private location: Location) { }
 
   ngOnInit(): void {
     this.getHero();
   }
 
+  // get hero id
   getHero(): void {
-    const id= Number(this.route.snapshot.paramMap.get("id"));
-    this.heroService.getHero(id).subscribe(data=> this.hero=data)
-   }
+    const id = Number(this.route.snapshot.paramMap.get("id"));
+    this.heroService.getHero(id).subscribe(data => this.hero = data)
+  }
 
-   goBack(): void{
-     this.location.back();
-   }
+  // button go back
+  goBack(): void {
+    this.location.back();
+  }
 
-   save():void{
-     if(this.hero){
-       this.heroService.updateHero(this.hero).subscribe(()=>this.goBack());
-     }
-   }
+  // button save the name
+  save(): void {
+    if (this.hero) {
+      this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
+    }
+  }
 
 
 }
